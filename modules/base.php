@@ -225,11 +225,11 @@ function fa_ajax_comment_callback()
         <header class="uk-comment-header uk-position-relative">
             <div class="uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
-                    <img class="uk-comment-avatar" src="<?php echo get_avatar_url($comment, $size = '56'); ?>"
+                    <img class="uk-comment-avatar article-comment-avatar-img" src="<?php echo get_avatar_url($comment, $size = '56'); ?>"
                          width="56" height="56" alt="">
                 </div>
                 <div class="uk-width-expand">
-                    <h4 class="uk-comment-title uk-margin-remove authorname"><?php
+                    <h4 class="uk-comment-title uk-margin-remove article-comment-info"><?php
                         $url = get_comment_author_url();
                         $author = get_comment_author();
                         if (empty($url)) echo $author;
@@ -280,11 +280,11 @@ function mooc_comment($comment, $args, $depth)
                 <header class="uk-comment-header uk-position-relative">
                     <div class="uk-grid-medium uk-flex-middle" uk-grid>
                         <div class="uk-width-auto">
-                            <img class="uk-comment-avatar" src="<?php echo get_avatar_url($comment, $size = '56'); ?>"
+                            <img class="uk-comment-avatar article-comment-avatar-img" src="<?php echo get_avatar_url($comment, $size = '56'); ?>"
                                  width="56" height="56" alt="">
                         </div>
                         <div class="uk-width-expand">
-                            <h4 class="uk-comment-title uk-margin-remove authorname"><?php
+                            <h4 class="uk-comment-title uk-margin-remove article-comment-info"><?php
                                 $url = get_comment_author_url();
                                 $author = get_comment_author();
                                 if (empty($url)) echo $author;

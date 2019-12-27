@@ -75,13 +75,14 @@
     <?php endif; ?>
 </div>
 <script type="text/javascript">
-    var x = document.getElementsByClassName('authorname');
+    var x = document.getElementsByClassName('article-comment-info');
     for (var i=0; i<x.length; ++i) {
-        var url = x[i].firstElementChild.href;
+        if(x[i].childElementCount <= 0)
+            continue;
+        var url = x[i].firstElementChild.href;  // 跳转的链接, 微信头像在 author_comment_url 中, 需要替换
         if (url.match(/^https:\/\/wx.qlogo.cn\//) != null) {
             x[i].firstElementChild.href = '';
-            x[i].parentElement.previousElementSibling.src = url;
-            x[i].parentElement.previousElementSibling.srcset = "";
+            x[i].parentNode.parentNode.firstElementChild.firstElementChild.src = url;
         }
     }
 </script>

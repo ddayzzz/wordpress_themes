@@ -3,7 +3,7 @@
     <div class="uk-section uk-section-small uk-section-primary uk-flex-center uk-flex uk-text-center">
         <div class="footer">
             <div class="section">
-                <p>Powered by WordPress and UIkit, Theme <a href="https://ddayzzz.wang/theme" target="_blank">naïve</a>, based on <a href="https://moooc.cc/theme" target="_blank">ok</a>&nbsp;and&nbsp;<a href="https://ddayzzz.wang/theme" target="_blank">bigsize</a>.</p>
+                <p>Powered by WordPress and UIkit, Theme <a href="https://ddayzzz.wang/theme" target="_blank">naïve</a>, based on <a href="https://moooc.cc/theme" target="_blank">ok</a>&nbsp;and&nbsp;<a href="https://moooc.cc/theme" target="_blank">bigsize</a>.</p>
                 <p><?php echo get_option('mooc_copyright')?></p>
             </div>
         </div>

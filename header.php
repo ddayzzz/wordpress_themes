@@ -99,7 +99,7 @@
 <?php else: ?>
     <div class="uk-width-1-1">
         <nav class="uk-navbar-container uk-margin" uk-navbar>
-            <div class="uk-navbar-left uk-margin-small-left">
+            <div class="uk-navbar-left uk-padding uk-padding-remove-vertical uk-padding-remove-right">
                 <a class="uk-navbar-item uk-logo"
                    href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
                 <?php
