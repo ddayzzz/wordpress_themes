@@ -25,7 +25,7 @@
     <?php endif; ?>
     <!--摘要信息-->
     <div class="uk-card-body"><span>
-        <p><?php echo post_password_required() ? '' :  mb_strimwidth(strip_tags($post->post_content), 0, 260, "..."); ?></p>
+        <p><?php echo post_password_required() ? '>已加密<' :  mb_strimwidth(strip_tags($post->post_content), 0, 260, "..."); ?></p>
         <p><?php echo get_the_date('Y年n月j日'); ?> - <?php if (function_exists('get_the_views')) echo get_the_views($post->ID); ?>次阅读 - <?php echo get_post($post->ID)->comment_count ?>条评论<?php edit_post_link('编辑', ' - '); ?></p></span>
     </div>
 </div>

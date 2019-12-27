@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="uk-container v-clearfix uk-width-1-1">
     <div class="uk-grid" data-ukgrid="">
-        <div class="uk-width-1-1 uk-width-3-4@l">
+        <div class="uk-width-1-1 uk-width-3-4@m">
             <div class="uk-margin uk-card uk-card-default uk-card-body uk-card-hover">
                 <?php while (have_posts()) : the_post(); ?>
                     <div class="article-content">
@@ -21,9 +21,8 @@
                 </div>
             <?php endif;?>
         </div>
-        <div class="uk-width-1-4@l uk-visible@l ">
-            <div class="uk-margin-left uk-card uk-card-secondary uk-card-body uk-card-hover uk-sticky uk-sticky-fixed"
-                 uk-sticky="offset: 20">
+        <div class="uk-width-1-4@m uk-visible@m uk-height-medium">
+            <div class=" uk-card uk-card-secondary uk-card-body uk-card-hover uk-sticky uk-sticky-fixed article-head-container" uk-sticky="offset: 100" >
                 <ul class="uk-nav-default uk-nav-parent-icon" id="article-head-category" uk-nav="multiple: true">
                 </ul>
             </div>
@@ -67,6 +66,7 @@
             item.appendChild(link);
             var sub = document.createElement("ul");
             sub.className = "uk-nav-sub";
+            sub.style.marginLeft = '0';
             item.appendChild(sub);
             if (rootEle != null && !rootEle.firstChild.nextSibling.hasChildNodes()) {
                 // 删除空的子节点, rootEle 下面是是 a 和 ul
@@ -138,6 +138,12 @@
         rootEle.classList.remove('uk-parent');
         rootEle.removeChild(rootEle.lastChild);
     }
+    categoryList = document.getElementById('article-head-category');
+    if(categoryList.childElementCount <= 0)
+    {
+        categoryList.parentNode.style.display = 'none';
+    }
+
     // 复制 DOM 到 mobile 视图
     target = document.getElementById("article-head-category-mobile");
     ori = document.getElementById("article-head-category").cloneNode(true);

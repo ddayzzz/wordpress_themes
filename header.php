@@ -50,7 +50,7 @@
     <div class="uk-section v-clearfix uk-section-primary uk-background-cover uk-padding-remove-top uk-preserve-color"
          style="background-image: url(<?php if (post_password_required()) echo get_template_directory_uri() . "/assets/banners/default-banner.jpg"; else echo mooc_thumbnail_url(); ?>)">
         <!--stiky 需要指定id！-->
-        <div class="uk-visible@l" uk-sticky="animation: uk-animation-slide-top; sel-target: #hm; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+        <div class="uk-visible@m" uk-sticky="animation: uk-animation-slide-top; sel-target: #hm; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200;show-on-up: true">
             <nav class="uk-navbar-container uk-padding uk-padding-remove-bottom uk-padding-remove-top" uk-navbar
                  id="hm">
                 <div class="uk-navbar-left">
@@ -64,8 +64,8 @@
             </nav>
         </div>
         <!--移动端下滑的导航栏-->
-        <div class="uk-hidden@l"
-             uk-sticky="animation: uk-animation-slide-top; sel-target: #mb; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+        <div class="uk-hidden@m"
+             uk-sticky="animation: uk-animation-slide-top; sel-target: #mb; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200;show-on-up: true">
             <nav class="uk-navbar-container uk-padding uk-padding-remove-bottom uk-padding-remove-top" uk-navbar
                  id="mb">
                 <div class="uk-navbar-left">
@@ -97,6 +97,7 @@
 
 
 <?php else: ?>
+<!--一般页面的导航栏-->
     <div class="uk-width-1-1">
         <nav class="uk-navbar-container uk-margin" uk-navbar>
             <div class="uk-navbar-left uk-padding uk-padding-remove-vertical uk-padding-remove-right">
@@ -107,7 +108,9 @@
                 echo preg_replace('/[\n]+/i', '', $temp);    // 如果相邻li之间有回车会导致有间隔
                 ?>
             </div>
+            <!--暂时不用 index 页面的按钮-->
         </nav>
+
     </div>
 
 <?php endif; ?>

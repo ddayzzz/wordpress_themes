@@ -54,7 +54,7 @@
 
 
                     <div class="uk-margin">
-                        <textarea class="uk-textarea" id="comment" name="comment" aria-required="true" rows="8" name="comment"></textarea>
+                        <textarea class="uk-textarea" id="comment" name="comment" aria-required="true" rows="8" name="comment" placeholder="您此刻的想法"></textarea>
                     </div>
 
                     <div class="uk-margin smilies-wrap">

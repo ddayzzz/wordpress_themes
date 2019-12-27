@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <div class="uk-container v-clearfix uk-margin-medium-top">
         <div class="uk-grid" data-ukgrid="">
-            <div class="uk-width-2-3@l posts">
+            <div class="uk-width-2-3@m posts">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php get_template_part('content', get_post_format()); ?>
@@ -16,15 +16,23 @@
                         'mid_size' => 2,
                         'type'=> 'array'
                     ));
-                    if(count($pag) >= 2){
+                    if($pag != null && count($pag) >= 2){
                         echo '<div class="uk-tile uk-tile-default uk-padding-remove"><div class="navigation uk-margin-small-top uk-margin-small-bottom">' . join(' ', $pag) . '</div></div>';
                     }
-
                  } ?>
             </div>
-            <div class="uk-width-1-3@l">
+            <div class="uk-width-1-3@m">
                 <?php get_sidebar(); ?>
             </div>
         </div>
     </div>
+<!--在移动端显示的导航栏-->
 <?php get_footer(); ?>
+<script type="text/javascript">
+    // function executeHomeOffCanvasNavbar() {
+    //     UIkit.offcanvas("#offcanvas-single-nav").show();
+    // }
+    // 定义siderbar 的菜单篮
+    // var sidebar = document.getElementsByClassName('sidebar')[0];
+    // document.getElementById('index-head-category-mobile').appendChild(sidebar.cloneNode(true));
+</script>

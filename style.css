@@ -159,17 +159,25 @@ a:hover.page-numbers {color: #fff; background: #ddd; text-shadow: none; border-c
 
 /* =自适应
 ----------------------------------------------- */
-@media screen and (max-width: 960px) {
-	.header, .container {width: 96%;min-width: auto;}
-	.sidebar {width: 100%;float: none;clear: both;border: none;text-align: center;}
-	#searchform #s {float:none;}
-	.posts {width: 100%;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 2px dashed #eee;}
-	.page-side {float: none;}
-	.page-content {float: none;width: 100%;}
+/*@media screen and (max-width: 960px) {*/
+/*	.header, .container {width: 96%;min-width: auto;}*/
+/*	.sidebar {width: 100%;float: none;clear: both;border: none;text-align: center;}*/
+/*	#searchform #s {float:none;}*/
+/*	.posts {width: 100%;margin-bottom: 20px;padding-bottom: 20px;border-bottom: 2px dashed #eee;}*/
+/*	.page-side {float: none;}*/
+/*	.page-content {float: none;width: 100%;}*/
+/*}*/
+/*@media screen and (max-width: 680px){*/
+/*	#gotop {display: none;}*/
+/*	.post .summary {margin-left:0;}*/
+/*	.metabar {background-image: none;}*/
+/*	.smiles {display: block;float: none;}*/
+/*}*/
+
+.article-head-container{
+	max-height: 80%;
+	overflow-y: scroll;
 }
-@media screen and (max-width: 680px){
-	#gotop {display: none;}
-	.post .summary {margin-left:0;}
-	.metabar {background-image: none;}
-	.smiles {display: block;float: none;}
+aside.widget_archive label{
+	display: none; /* 不显示多余的菜单*/
 }
