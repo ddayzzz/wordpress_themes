@@ -1,4 +1,4 @@
-<div class="uk-card uk-card-default uk-card-hover uk-padding-remove-top uk-margin-small-bottom">
+<div class="uk-card <?php write_uikit_theme_card() ?> uk-card-hover uk-padding-remove-top uk-margin-small-bottom">
 
     <?php $thumb_img = mooc_thumbnail_postflow_url(); ?>
     <?php if ($thumb_img == NULL or post_password_required()): ?>

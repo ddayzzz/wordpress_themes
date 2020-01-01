@@ -2,7 +2,7 @@
 <div class="uk-container v-clearfix uk-width-1-1">
     <div class="uk-grid" data-ukgrid="">
         <div class="uk-width-1-1 uk-width-3-4@m">
-            <div class="uk-margin uk-card uk-card-default uk-card-body uk-card-hover">
+            <div class="uk-margin uk-card <?php write_uikit_theme_card() ?> uk-card-body uk-card-hover">
                 <?php while (have_posts()) : the_post(); ?>
                     <div class="article-content">
                         <?php
@@ -16,7 +16,7 @@
                 <?php endwhile; ?>
             </div>
             <?php if(comments_open()): ?>
-                <div class="uk-margin uk-card uk-card-default uk-card-body uk-card-hover" id="article-comment-box">
+                <div class="uk-margin uk-card <?php write_uikit_theme_card() ?> uk-card-body uk-card-hover" id="article-comment-box">
                     <?php comments_template(); ?>
                 </div>
             <?php endif;?>
@@ -132,6 +132,7 @@
     }
 
     genCategory();
+    // 滑动目录
     // 移除可能的参考标签之下没有列表
     if (rootEle != null && !rootEle.firstChild.nextSibling.hasChildNodes()) {
         // 删除空的子节点, rootEle 下面是是 a 和 ul
@@ -143,7 +144,6 @@
     {
         categoryList.parentNode.style.display = 'none';
     }
-
     // 复制 DOM 到 mobile 视图
     target = document.getElementById("article-head-category-mobile");
     ori = document.getElementById("article-head-category").cloneNode(true);

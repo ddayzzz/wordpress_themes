@@ -1,6 +1,6 @@
 
-<div class="uk-container uk-width-1-1 uk-padding-remove-left uk-padding-remove-right" id="footer-widgets">
-    <div class="uk-section uk-section-small uk-section-primary uk-flex-center uk-flex uk-text-center">
+<div class="uk-container uk-width-1-1 uk-padding-remove-left uk-padding-remove-right uk-margin-small-top" id="footer-widgets">
+    <div class="uk-section uk-section-small uk-flex-center uk-flex uk-text-center <?php write_uikit_theme_section(); ?>">
         <div class="footer">
             <div class="section">
                 <p>Powered by WordPress and UIkit, Theme <a href="https://ddayzzz.wang/theme" target="_blank">naïve</a>, based on <a href="https://moooc.cc/theme" target="_blank">ok</a>&nbsp;and&nbsp;<a href="https://moooc.cc/theme" target="_blank">bigsize</a>.</p>

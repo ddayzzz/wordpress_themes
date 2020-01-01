@@ -42,12 +42,12 @@
     ?>
 </head>
 
-<body <?php body_class(); ?> >
+<body <?php body_class();?>>
 
 
 <?php if (is_single()): ?>
 
-    <div class="uk-section v-clearfix uk-section-primary uk-background-cover uk-padding-remove-top uk-preserve-color"
+    <div class="uk-section v-clearfix <?php write_uikit_theme_section();?> uk-background-cover uk-padding-remove-top uk-preserve-color"
          style="background-image: url(<?php if (post_password_required()) echo get_template_directory_uri() . "/assets/banners/default-banner.jpg"; else echo mooc_thumbnail_url(); ?>)">
         <!--stiky 需要指定id！-->
         <div class="uk-visible@m" uk-sticky="animation: uk-animation-slide-top; sel-target: #hm; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200;show-on-up: true">
@@ -61,6 +61,13 @@
                     echo preg_replace('/[\n]+/i', '', $temp);    // 如果相邻li之间有回车会导致有间隔
                     ?>
                 </div>
+                <div class="uk-navbar-right">
+                    <?php if(get_theme_cookie() == 'dark'): ?>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                    <?php else: ?>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                    <?php endif;?>
+                </div>
             </nav>
         </div>
         <!--移动端下滑的导航栏-->
@@ -73,6 +80,11 @@
                        href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
                 </div>
                 <div class="uk-navbar-right">
+                    <?php if(get_theme_cookie() == 'dark'): ?>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                    <?php else: ?>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                    <?php endif;?>
                     <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon"
                             onclick="executeOffCanvasNavbar()" uk-navbar-toggle-icon=""></button>
                 </div>
@@ -99,8 +111,9 @@
 <?php else: ?>
 <!--一般页面的导航栏-->
     <div class="uk-width-1-1">
-        <nav class="uk-navbar-container uk-margin" uk-navbar>
-            <div class="uk-navbar-left uk-padding uk-padding-remove-vertical uk-padding-remove-right">
+        <!--暂时不用 index 页面的按钮-->
+        <nav class="uk-navbar-container uk-margin <?php write_uikit_theme_navbar(); ?> uk-padding uk-padding-remove-vertical" uk-navbar>
+            <div class="uk-navbar-left">
                 <a class="uk-navbar-item uk-logo"
                    href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
                 <?php
@@ -108,7 +121,13 @@
                 echo preg_replace('/[\n]+/i', '', $temp);    // 如果相邻li之间有回车会导致有间隔
                 ?>
             </div>
-            <!--暂时不用 index 页面的按钮-->
+            <div class="uk-navbar-right">
+                <?php if(get_theme_cookie() == 'dark'): ?>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                <?php else: ?>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                <?php endif;?>
+            </div>
         </nav>
 
     </div>
@@ -127,5 +146,11 @@
                 menu.children[j].classList.add('uk-margin-remove-top');
             }
         }
+    }
+    function changeTheme(target, path, domain) {
+        // 设置 cookie
+        document.cookie  = 'theme=' + target + ';path=' + path + ';domain=' + domain;
+        // 刷新页面
+        location.reload();
     }
 </script>

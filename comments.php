@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="uk-margin">
-                        <input class="uk-button uk-button-primary" id="submit" type="submit" value="<?php _e( '发布', 'aladdin' ); ?>" name="submit">
+                        <input class="uk-button <?php write_uikit_theme_comment_button() ?>" id="submit" type="submit" value="<?php _e( '发布', 'aladdin' ); ?>" name="submit">
 
                     </div>
 

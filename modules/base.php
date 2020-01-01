@@ -66,6 +66,13 @@ function shu_add_externel_modules()
 //    wp_enqueue_script('axios-js', get_template_directory_uri() . '/axios/axios.min.js', '0.12.0', true);
     // https://github.com/uikit/uikit/issues/2229#issuecomment-421405322
     wp_enqueue_script('uikit-js-icons', get_template_directory_uri() . '/assets/js/uikit-icons.min.js', '3.2.6', true);
+    if(get_theme_cookie() == 'dark')
+    {
+        wp_enqueue_style('theme-dark-css', get_template_directory_uri() . '/assets/css/dark-theme.css');
+    }
+    else{
+        wp_enqueue_style('theme-light-css', get_template_directory_uri() . '/assets/css/light-theme.css');
+    }
 }
 
 add_action('wp_enqueue_scripts', 'shu_add_externel_modules');
@@ -569,7 +576,7 @@ add_action('admin_menu', 'themeoptions_admin_menu');
  *
  * @since ok 1.0.2
  */
-function get_archive_by_category($hide_empty = false)
+function get_archive_by_category($hide_empty = false, $tile_style)
 {
     $pages = '<ul id="archives-pages" class="uk-switcher">';
     $output = '<ul class="uk-tab-left" uk-tab="connect: #archives-pages; animation: uk-animation-fade;">';
@@ -592,7 +599,7 @@ function get_archive_by_category($hide_empty = false)
         }
         $posts = get_posts($args);
         foreach ($posts as $post) {
-            $pages .='<div class="uk-tile uk-tile-muted uk-padding-small">
+            $pages .='<div class="uk-tile uk-tile-'.$tile_style.' uk-padding-small">
             <a class="uk-link-heading" href="' . get_permalink($post->ID) . '"><span class="uk-label uk-margin-small-right">'.human_time_diff(strtotime($post->post_date_gmt), time()).'前</span>&nbsp;' . $post->post_title . '</a>
         </div>';
 //            $output .= '<div class="archive-category-post"><a class="archive-category-post-title" href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a><time class="archive-category-post-time">' . human_time_diff(strtotime($post->post_date_gmt), time()) . '前 </time></div>';
@@ -658,7 +665,7 @@ add_filter('style_loader_src', 'mooc_remove_cssjs_ver', 999);
 add_filter('script_loader_src', 'mooc_remove_cssjs_ver', 999);
 
 /**
- * 设置主题的 cookie
+ * 设置主题的 cookie. light: 亮色主题(默认,light), 暗黑模式(dark)
  */
 function set_theme_cookie() {
     if (!isset($_COOKIE['theme'])) {
@@ -667,15 +674,52 @@ function set_theme_cookie() {
 }
 
 function get_theme_cookie(){
-    set_theme_cookie();
     // 读取
     return $_COOKIE['theme'];
 }
 
-function write_uikit_theme_class(){
-    echo 'uk-'.get_theme_copaokie();
+/* 添加 body 的字体和背景颜色 */
+function write_light_class($classes){
+    if(get_theme_cookie() == 'dark'){
+        return array_merge($classes, array('uk-light'));
+    }
+    return $classes;
 }
-add_action('write_uikit_theme_class', 'write_uikit_theme_class');
+add_filter( 'body_class', 'write_light_class' );
+
+function write_uikit_theme_card(){
+    if(get_theme_cookie() == 'dark'){
+        echo 'uk-card-secondary';
+    }
+    else{
+        echo 'uk-card-default';
+    }
+}
+function write_uikit_theme_section(){
+    if(get_theme_cookie() == 'dark'){
+        echo 'uk-section-secondary';
+    }
+    else{
+        echo 'uk-section-muted';
+    }
+}
+function write_uikit_theme_navbar(){
+    if(get_theme_cookie() == 'dark'){
+        echo 'uk-background-secondary';
+    }
+    else{
+        echo '';
+    }
+}
+function write_uikit_theme_comment_button(){
+    if(get_theme_cookie() == 'dark'){
+        echo 'uk-button-default';
+    }
+    else{
+        echo 'uk-button-primary';
+    }
+}
+
 
 /**
  * 移除不必要的功能

@@ -1,0 +1,17 @@
+@import url(../highlight/atom-one-dark.css);
+@import url(../css/basic.css);
+/*颜色选自: https://www.mdui.org/design/style/color.html#color-color-tool */
+/*暗色和两亮色模式的图标搜索自: https://www.flaticon.com/ */
+.uk-navbar-container:not(.uk-navbar-transparent){
+    background: #222 !important; ;  /*按照 uikit.min.css 给出值, 这个改进去掉了在 dark 模式下自动给 navbar-container 添加背景色的 bug*/
+}
+body,
+article.uk-comment-primary{
+    background: #424242;
+}
+
+div.uk-card-header div.uk-section div.uk-panel,
+div.uk-card-header
+{
+    background: #616161;
+}
