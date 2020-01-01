@@ -695,6 +695,14 @@ function write_uikit_theme_card(){
         echo 'uk-card-default';
     }
 }
+function get_uikit_theme_tile(){
+    if(get_theme_cookie() == 'dark'){
+        return 'uk-tile-secondary';
+    }
+    else{
+        return 'uk-tile-default';
+    }
+}
 function write_uikit_theme_section(){
     if(get_theme_cookie() == 'dark'){
         echo 'uk-section-secondary';

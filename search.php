@@ -20,7 +20,7 @@
                     'type'=> 'array'
                 ));
                 if($pag != null && count($pag) >= 2){
-                    echo '<div class="uk-tile uk-tile-default uk-padding-remove"><div class="navigation uk-margin-small-top uk-margin-small-bottom">' . join(' ', $pag) . '</div></div>';
+                    echo '<div class="uk-tile '.get_uikit_theme_tile().' uk-padding-remove"><div class="navigation uk-margin-small-top uk-margin-small-bottom">' . join(' ', $pag) . '</div></div>';
                 }
                 ?>
             <?php else: ?>

@@ -63,9 +63,9 @@
                 </div>
                 <div class="uk-navbar-right">
                     <?php if(get_theme_cookie() == 'dark'): ?>
-                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
                     <?php else: ?>
-                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
                     <?php endif;?>
                 </div>
             </nav>
@@ -81,9 +81,9 @@
                 </div>
                 <div class="uk-navbar-right">
                     <?php if(get_theme_cookie() == 'dark'): ?>
-                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
                     <?php else: ?>
-                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                        <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
                     <?php endif;?>
                     <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon"
                             onclick="executeOffCanvasNavbar()" uk-navbar-toggle-icon=""></button>
@@ -123,9 +123,9 @@
             </div>
             <div class="uk-navbar-right">
                 <?php if(get_theme_cookie() == 'dark'): ?>
-                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
                 <?php else: ?>
-                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark', <?php echo '\''.COOKIEPATH.'\',\''.COOKIE_DOMAIN.'\'' ?>)"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
                 <?php endif;?>
             </div>
         </nav>
@@ -147,9 +147,9 @@
             }
         }
     }
-    function changeTheme(target, path, domain) {
+    function changeTheme(target) {
         // 设置 cookie
-        document.cookie  = 'theme=' + target + ';path=' + path + ';domain=' + domain;
+        document.cookie  = 'theme=' + target + <?php echo '\';path='.COOKIEPATH.';domain='.COOKIE_DOMAIN.'\''; ?>;
         // 刷新页面
         location.reload();
     }
