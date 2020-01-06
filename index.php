@@ -28,11 +28,3 @@
     </div>
 <!--在移动端显示的导航栏-->
 <?php get_footer(); ?>
-<script type="text/javascript">
-    // function executeHomeOffCanvasNavbar() {
-    //     UIkit.offcanvas("#offcanvas-single-nav").show();
-    // }
-    // 定义siderbar 的菜单篮
-    // var sidebar = document.getElementsByClassName('sidebar')[0];
-    // document.getElementById('index-head-category-mobile').appendChild(sidebar.cloneNode(true));
-</script>
