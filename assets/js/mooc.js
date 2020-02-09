@@ -214,5 +214,5 @@ jQuery("pre").each(function (i, e) {
 });
 // 增加 uikit 的 class, 这个是通用的
 jQuery("select").addClass("uk-select");
-jQuery("ul").addClass("uk-list");
+// jQuery("ul").addClass("uk-list");
 jQuery("aside").addClass("uk-margin-medium-bottom");

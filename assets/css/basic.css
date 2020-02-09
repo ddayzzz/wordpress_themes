@@ -53,11 +53,13 @@ pre code {
 /* img 包裹在了 a 之中用于显示 图像*/
 .article-content div a img {max-width: 100%;height: auto;border: solid 1px #ddd;}
 .article-content div a img:hover {}
-.article-content ul,.article-content ol {padding-left: 20px;margin: 14px 0;line-height: 36px;}
+/*.article-content ul,.article-content ol {padding-left: 20px;margin: 14px 0;}*/
 .article-content h1,
 .article-content h2 {
     margin:24px 0;
-    padding-left: 24px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     /*margin-left: -26px;*/
     border-left: solid 2px #47c;
     background-color: rgba(0,153,255,0.03);
@@ -165,4 +167,12 @@ a:hover.page-numbers {color: #fff; background: #ddd; text-shadow: none; border-c
 }
 aside.widget_archive label{
     display: none; /* 不显示多余的归档的标签*/
+}
+/* 子评论框缩小, 这个是参照 uk-margin-medium-top 修改的 */
+ul.commentlist li.comment ul.children{
+    margin-top: 40px!important
+}
+/* 缩小层主的 margin, padding 足以*/
+ul.commentlist li.comment {
+    margin: 0!important;
 }

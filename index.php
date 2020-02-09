@@ -27,4 +27,10 @@
         </div>
     </div>
 <!--在移动端显示的导航栏-->
+<script type="text/javascript">
+
+    function executeOffCanvasNavbar() {
+        UIkit.offcanvas("#offcanvas-non-single-nav").show();
+    }
+</script>
 <?php get_footer(); ?>

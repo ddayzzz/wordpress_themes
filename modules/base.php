@@ -60,12 +60,12 @@ add_action('wp_enqueue_scripts', 'mooc_scripts_styles');
 function shu_add_externel_modules()
 {
     /** uikit */
-    wp_enqueue_style('uikit-css', get_template_directory_uri() . '/assets/css/uikit.min.css');
-    wp_enqueue_script('uikit-js', get_template_directory_uri() . '/assets/js/uikit.min.js', '3.2.6', true);
+    wp_enqueue_style('uikit-css', get_template_directory_uri() . '/assets/css/uikit.min.css', '3.3.1', true);
+    wp_enqueue_script('uikit-js', get_template_directory_uri() . '/assets/js/uikit.min.js', '3.3.1', true);
 //    wp_enqueue_script('vue-develop-js', get_template_directory_uri() . '/vue/vue.js', '2.6.1', true);
 //    wp_enqueue_script('axios-js', get_template_directory_uri() . '/axios/axios.min.js', '0.12.0', true);
     // https://github.com/uikit/uikit/issues/2229#issuecomment-421405322
-    wp_enqueue_script('uikit-js-icons', get_template_directory_uri() . '/assets/js/uikit-icons.min.js', '3.2.6', true);
+    wp_enqueue_script('uikit-js-icons', get_template_directory_uri() . '/assets/js/uikit-icons.min.js', '3.3.1', true);
     if(get_theme_cookie() == 'dark')
     {
         wp_enqueue_style('theme-dark-css', get_template_directory_uri() . '/assets/css/dark-theme.css');

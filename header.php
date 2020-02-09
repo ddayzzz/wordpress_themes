@@ -111,8 +111,7 @@
 <?php else: ?>
 <!--一般页面的导航栏-->
     <div class="uk-width-1-1">
-        <!--暂时不用 index 页面的按钮-->
-        <nav class="uk-navbar-container uk-margin <?php write_uikit_theme_navbar(); ?> uk-padding uk-padding-remove-vertical" uk-navbar>
+        <nav class="uk-navbar-container uk-margin <?php write_uikit_theme_navbar(); ?> uk-padding uk-padding-remove-vertical uk-visible@m" uk-navbar>
             <div class="uk-navbar-left">
                 <a class="uk-navbar-item uk-logo"
                    href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
@@ -129,7 +128,45 @@
                 <?php endif;?>
             </div>
         </nav>
+        <!-- 单页面的移动端的显示条 -->
+        <nav class="uk-navbar-container uk-padding uk-padding-remove-bottom uk-padding-remove-top uk-hidden@m" uk-navbar
+             id="mb">
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo"
+                   href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+            </div>
+            <div class="uk-navbar-right">
+                <?php if(get_theme_cookie() == 'dark'): ?>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到亮色主题" onclick="changeTheme('light')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/sunny.svg);"></span></button>
+                <?php else: ?>
+                    <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon" title="切换到暗色主题" onclick="changeTheme('dark')"><span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/icons/moon.svg);"></span></button>
+                <?php endif;?>
+                <button class="uk-button uk-navbar-toggle uk-icon uk-navbar-toggle-icon"
+                        onclick="executeOffCanvasNavbar()" uk-navbar-toggle-icon=""></button>
+            </div>
+        </nav>
+        <!-- 移动端的 canvas 均由 header 输出, signle 单独处理 -->
+        <!--在移动端显示的导航栏-->
+        <div id="offcanvas-non-single-nav" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar" id="offcanvas-nav-bar">
+                <ul class="uk-nav uk-nav-default">
+                    <li class="uk-nav-header"><a class="uk-logo" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
+                    <li class="uk-nav-header"><span class="uk-margin-small-right" uk-icon="icon: menu"></span>页面</li>
+                    <li class="uk-nav-divider"></li>
+                    <?php
+                    $temp = wp_nav_menu(array(
+                        'items_wrap' => '%3$s',
+                        'container' => '',
+                        'depth' => 0,
+                        'echo' => false));
+                    echo preg_replace('/[\n]+/i', '', $temp);    // 如果相邻li之间有回车会导致有间隔
+                    ?>
 
+                </ul>
+
+            </div>
+        </div>
+    </div>
     </div>
 
 <?php endif; ?>

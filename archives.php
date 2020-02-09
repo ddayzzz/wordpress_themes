@@ -19,6 +19,12 @@ Template Name: 归档
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+    function executeOffCanvasNavbar() {
+        UIkit.offcanvas("#offcanvas-non-single-nav").show();
+    }
+</script>
 <div id="gotop"></div>
 <?php get_footer(); ?>
 

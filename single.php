@@ -16,7 +16,7 @@
                 <?php endwhile; ?>
             </div>
             <?php if(comments_open()): ?>
-                <div class="uk-margin uk-card <?php write_uikit_theme_card() ?> uk-card-body uk-card-hover" id="article-comment-box">
+                <div class="uk-card <?php write_uikit_theme_card() ?> uk-card-body uk-card-hover" id="article-comment-box">
                     <?php comments_template(); ?>
                 </div>
             <?php endif;?>
@@ -31,9 +31,17 @@
         <div id="offcanvas-single-nav" uk-offcanvas="overlay: true">
             <div class="uk-offcanvas-bar" id="offcanvas-nav-bar">
                 <ul class="uk-nav uk-nav-default">
-                    <li class="uk-nav-header"><a class="uk-navbar-item uk-logo" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
+                    <li class="uk-nav-header"><a class="uk-logo" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
                     <li class="uk-nav-header"><span class="uk-margin-small-right" uk-icon="icon: menu"></span>页面</li>
-                    <li class="uk-nav-divider" id="article-menu-urls"></li>
+                    <li class="uk-nav-divider"></li>
+                    <?php
+                    $temp = wp_nav_menu(array(
+                        'items_wrap' => '%3$s',
+                        'container' => '',
+                        'depth' => 0,
+                        'echo' => false));
+                    echo preg_replace('/[\n]+/i', '', $temp);    // 如果相邻li之间有回车会导致有间隔
+                    ?>
                     <li class="uk-nav-header"><span class="uk-margin-small-right" uk-icon="icon: hashtag"></span>导航目录</li>
                     <ul class="uk-nav-default uk-nav-parent-icon" id="article-head-category-mobile"
                         uk-nav="multiple: true">
@@ -149,13 +157,13 @@
     ori = document.getElementById("article-head-category").cloneNode(true);
     target.appendChild(ori);
     // 复制 连接
-    target = document.getElementById("article-menu-urls");
-    ori = document.getElementsByClassName("uk-navbar-nav")[0].children;
-    for (var i=0;i<ori.length;i++)
-    {
-        target.parentNode.insertBefore(ori[i].cloneNode(true), target);
-    }
-    jQuery(".article-content ul").addClass("uk-list-bullet");
+    // target = document.getElementById("article-menu-urls");
+    // ori = document.getElementsByClassName("uk-navbar-nav")[0].children;
+    // for (var i=0;i<ori.length;i++)
+    // {
+    //     target.parentNode.insertBefore(ori[i].cloneNode(true), target);
+    // }
+    jQuery(".article-content ul").addClass("uk-list uk-list-bullet");
     jQuery(".article-content img").wrap(function () {
         return "<div uk-lightbox class='uk-text-center'><a class=\"uk-inline\" href=" + jQuery(this).attr('src') + "></a></div>";
     });
