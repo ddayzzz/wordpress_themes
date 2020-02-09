@@ -38,7 +38,7 @@
     var rootEle = null;
 
     function executeOffCanvasNavbar() {
-        UIkit.offcanvas("#offcanvas-single-nav").show();
+        UIkit.offcanvas("#offcanvas-non-single-nav").show();
     }
 
     function addHeadItem(level, text, id) {
