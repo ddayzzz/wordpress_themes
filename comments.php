@@ -4,7 +4,7 @@
     <meta content="UserComments:<?php echo number_format_i18n( get_comments_number() );?>" itemprop="interactionCount">
     <?php if ( have_comments() ) : ?>
 
-        <h3 class="uk-heading-line comments-title"><span><?php printf( _n( '1条评论', '%1$s条评论', get_comments_number(), 'aladdin' ),
+        <h3 class="uk-heading-line comments-title uk-margin-remove-top"><span><?php printf( _n( '1条评论', '%1$s条评论', get_comments_number(), 'aladdin' ),
                     number_format_i18n( get_comments_number() ) );?></span></h3>
         <div class="commentshow">
             <ul class="commentlist uk-comment-list">
@@ -31,19 +31,19 @@
 
                     <?php else : ?>
                         <div class="uk-margin">
-                            <div class="uk-inline">
+                            <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: user"></span>
                                 <input class="uk-input" id="author" name="author" type="text" aria-required="true" placeholder="昵称*" value="<?php echo $comment_author; ?>" >
                             </div>
                         </div>
                         <div class="uk-margin">
-                            <div class="uk-inline">
+                            <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
                                 <input class="uk-input" id="email" name="email" type="text" aria-required="true" placeholder="邮箱*" value="<?php echo $comment_author_email; ?>" >
                             </div>
                         </div>
                         <div class="uk-margin">
-                            <div class="uk-inline">
+                            <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: link"></span>
                                 <input class="uk-input" id="url" name="url" type="text" aria-required="true" placeholder="网站" value="<?php echo $comment_author_url; ?>" >
                             </div>

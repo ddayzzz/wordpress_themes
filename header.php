@@ -171,19 +171,19 @@
 
 <?php endif; ?>
 <script type="text/javascript">
-    var nav = document.getElementsByClassName('uk-navbar-left');
-    for(var i=0;i<nav.length;++i)
-    {
-        // 修改 margin, 这个问题很奇怪。第一个 页面的margin-top 总是0
-        if(nav[i].children.length >= 2)
-        {
-            var menu = nav[i].children[1];
-            for(var j=0;j<menu.children.length;++j)
-            {
-                menu.children[j].classList.add('uk-margin-remove-top');
-            }
-        }
-    }
+    // var nav = document.getElementsByClassName('uk-navbar-left');
+    // for(var i=0;i<nav.length;++i)
+    // {
+    //     // 修改 margin, 这个问题很奇怪。第一个 页面的margin-top 总是0
+    //     if(nav[i].children.length >= 2)
+    //     {
+    //         var menu = nav[i].children[1];
+    //         for(var j=0;j<menu.children.length;++j)
+    //         {
+    //             menu.children[j].classList.add('uk-margin-remove-top');
+    //         }
+    //     }
+    // }
     function changeTheme(target) {
         // 设置 cookie
         document.cookie  = 'theme=' + target + <?php echo '\';path='.COOKIEPATH.';domain='.COOKIE_DOMAIN.'\''; ?>;

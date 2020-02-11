@@ -54,12 +54,11 @@ pre code {
 .article-content div a img {max-width: 100%;height: auto;border: solid 1px #ddd;}
 .article-content div a img:hover {}
 /*.article-content ul,.article-content ol {padding-left: 20px;margin: 14px 0;}*/
-.article-content h1,
-.article-content h2 {
+.article-content h1{
     margin:24px 0;
     padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     /*margin-left: -26px;*/
     border-left: solid 2px #47c;
     background-color: rgba(0,153,255,0.03);

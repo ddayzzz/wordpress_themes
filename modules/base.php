@@ -228,7 +228,7 @@ function fa_ajax_comment_callback()
     // 主题评论结构
     ?>
     <li <?php comment_class(); ?> <?php if( $depth > 2){ echo ' style="margin-left:-100px;"';} ?> id="li-comment-<?php comment_ID() ?>" itemscope="" itemprop="comment">
-    <article class="uk-comment <?php if($depth <= 1 ){echo 'uk-comment-primary';}?> uk-visible-toggle comment-block">
+    <article class="uk-comment uk-margin-small-top <?php if($depth <= 1 ){echo 'uk-comment-primary';}?> uk-visible-toggle comment-block">
         <header class="uk-comment-header uk-position-relative">
             <div class="uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -283,7 +283,7 @@ function mooc_comment($comment, $args, $depth)
             $n = $depth - 3;
             echo ' style="margin-left:-' . $d * $n . 'px;"';
         } ?> id="li-comment-<?php comment_ID() ?>" itemscope="" itemprop="comment">
-            <article class="uk-comment <?php if($depth <= 1 ){echo 'uk-comment-primary';}?> uk-visible-toggle comment-block">
+            <article class="uk-comment uk-margin-small-top <?php if($depth <= 1 ){echo 'uk-comment-primary';}?> uk-visible-toggle comment-block">
                 <header class="uk-comment-header uk-position-relative">
                     <div class="uk-grid-medium uk-flex-middle" uk-grid>
                         <div class="uk-width-auto">
