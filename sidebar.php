@@ -5,3 +5,7 @@
         dynamic_sidebar( 'sidebar-1' );
     }?>
 </div>
+<script type="text/javascript">
+    // 这里没办法, 使用 DOM 来控制 siderbar
+    jQuery("div.sidebar ul").addClass("uk-list");
+</script>
