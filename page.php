@@ -131,7 +131,7 @@
         categoryList.parentNode.style.display = 'none';
     }
 
-    jQuery(".article-content ul").addClass("uk-list-bullet");
+    jQuery(".article-content ul").addClass("uk-list uk-list-bullet");
     jQuery(".article-content img").wrap(function () {
         return "<div uk-lightbox class='uk-text-center'><a class=\"uk-inline\" href=" + jQuery(this).attr('src') + "></a></div>";
     });
