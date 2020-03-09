@@ -510,10 +510,9 @@ function themeoptions_page()
         <form method="POST" action="">
             <input type="hidden" name="update_themeoptions" value="true"/>
             <h2>个性设置</h2>
-            <p><input type="text" name="copyright" id="copyright" size="32"
-                      value="<?php echo get_option('mooc_copyright'); ?>"/> 底部版权信息</p>
-            <p><label><input type="checkbox" name="reward" id="reward" <?php echo get_option('mooc_reward'); ?>/> 显示打赏按钮</label>
-            </p>
+            <p><input type="text" name="icp_beian" id="icp_beian" size="32" value="<?php echo get_option('shu_icp_beian'); ?>"/> ICP备案号</p>
+            <p><input type="text" name="gongan_beian" id="gongan_beian" size="32" value="<?php echo get_option('shu_gongan_beian'); ?>"/> 公安备案号</p>
+            <p><label><input type="checkbox" name="reward" id="reward" <?php echo get_option('mooc_reward'); ?>/> 显示打赏按钮</label></p>
             <p><input type="text" name="reward_description" id="reward_description" size="32"
                       value="<?php echo get_option('mooc_reward_description'); ?>"/> 打赏提示信息</p>
             <h2>SMTP设置</h2>
@@ -541,7 +540,8 @@ function themeoptions_page()
 function themeoptions_update()
 {
     // 数据更新验证
-    update_option('mooc_copyright', $_POST['copyright']);
+    update_option('shu_icp_beian', $_POST['icp_beian']);
+    update_option('shu_gongan_beian', $_POST['gongan_beian']);
     if ($_POST['reward'] == 'on') {
         $t = 'checked';
     } else {

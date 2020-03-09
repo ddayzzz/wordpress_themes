@@ -4,7 +4,15 @@
         <div class="footer">
             <div class="section">
                 <p>Powered by WordPress and UIkit, Theme <a href="https://ddayzzz.wang/theme" target="_blank">naïve</a>, based on <a href="https://moooc.cc/theme" target="_blank">ok</a>&nbsp;and&nbsp;<a href="https://moooc.cc/theme" target="_blank">bigsize</a>.</p>
-                <p><?php echo get_option('mooc_copyright')?></p>
+                <!-- 设置备案信息 -->
+                <p><a href="http://www.beian.miit.gov.cn" target="_blank"><?php echo get_option('shu_icp_beian') ?></a>
+                    <?php if(strlen(get_option('shu_gongan_beian')) > 0):?>
+                    &nbsp;|&nbsp;<span class="uk-icon uk-icon-image" style="background-image: url(<?php echo get_template_directory_uri().'/assets/icons/gongan_beian.svg' ?>);"></span>
+                        <a href="http://www.beian.gov.cn" target="_blank">
+                        <?php echo get_option('shu_gongan_beian') ?>
+                    </a>
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
     </div>
