@@ -175,3 +175,5 @@ ul.commentlist li.comment ul.children{
 ul.commentlist li.comment {
     margin: 0!important;
 }
+
+blockquote {padding-left:28px; border-left:solid 2px #ddd; margin-left:28px;}
